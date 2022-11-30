@@ -1,0 +1,193 @@
+
+/******************/
+/*    DESKTOP     */
+/******************/
+
+/*@media screen and (min-width: 1140px) {*/
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+		font-size: 16px;
+        height: 100%;
+        font-family: "Inter",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        font-weight: 300;
+        background-color: #F8F8F8;
+        color: #000;
+        display: grid;
+        grid-template-rows: 100px 1fr 75px;
+    }
+    
+
+    /*  HEADER */
+
+    .site-header {
+        background-color: #FFF;
+        box-shadow: 0 0 10px rgba(0,0,0,.08);
+        z-index: 1000;
+        height: 75px;
+        padding: 12px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .site-header-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .logo-Fizzup {
+        height: 60px;
+        padding: 0 50px;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+    .nav-list>li {
+        padding: 0 0.75rem;
+        font-size: 20px;
+    }
+
+    .nav-link {
+        color: #939393;
+        text-decoration: none;
+    }
+
+    .nav-link:hover {
+        color: #0957ff;
+        text-decoration: none;
+    }
+
+    .site-header-right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 50px;
+    }
+    
+    .site-header-right>a{
+        color: #fff;
+        background: #0957ff;
+        font-size: 1rem;
+        line-height: 1;
+        width: 80%;
+        padding: 1rem 1.5rem;
+        border: 0;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+
+
+
+
+
+    /*  MAIN  */
+
+    main {
+        padding: 30px 0;
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 66% 32%;
+        column-gap: 2%;
+    }
+
+    .form-section {
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.1);
+        border: 1px solid #d3d3d3;
+        border-radius: 6px;
+        background: #fff;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+        color: #000;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .opinion-section {
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.1);
+        border: 1px solid #d3d3d3;
+        border-radius: 6px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;     
+    }
+
+    .opinion-button {
+        text-align: center;
+        color: #fff;
+        background: #0957ff;
+        font-size: 1rem;
+        line-height: 1;
+        width: 60%;
+        padding: 1rem 1.5rem;
+        border: 0;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+
+    /*  FOOTER */
+
+    footer {
+        z-index: 299;
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 1rem;
+        color: #c5c5c5;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd
+    }
+
+    footer>span,
+    footer>a {
+        color: #939393;
+        text-decoration: none;
+    }
+
+    footer>a:hover{
+        color: #0957ff;
+        text-decoration: none;
+    }
+    footer>span {
+        padding: 0 25px;
+    }
+    footer>a {
+        font-weight: 300;
+    }
+
+/*}*/
+
+
+
+/******************/
+/*    MOBILE     */
+/******************/
+
+@media screen and (max-width: 1139px) {
+   
+}
