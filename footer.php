@@ -1,4 +1,3 @@
-    </main>
     <footer class="siteFooter">
         <span class="siteFooter-copyright">© FizzUp</span>
         <a href="https://www.fizzup.com/fr/programme-entrainement/">Programmes</a> - 

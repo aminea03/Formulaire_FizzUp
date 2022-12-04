@@ -15,9 +15,43 @@
     <meta name="description" content="Page du site Fizzup">
     <link href="CSS/reset.css" rel="stylesheet">
     <link href="CSS/stylesheet.css" rel="stylesheet">
-    <script src="vendor/tinymce/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://use.fontawesome.com/1c05a796f5.js"></script>
+
+    
+    <script type="text/javascript">
+
+    // Script modification couleur étoile notation
+
+    function getRate(id){
+        var id=document.getElementById(id).id;
+        var rate=document.getElementById(id+"_hidden").value;
+        for(var i=rate;i>=1;i--)
+        {
+            document.getElementById("rate"+i).src="img/yellowStar.png";
+        }
+        var id=parseInt(rate)+1;
+        for(var j=id;j<=5;j++)
+        {
+            document.getElementById("rate"+j).src="img/greyStar.png";
+        }
+
+        document.getElementById("rate").setAttribute("value", rate);
+
+    }
+
+    // Script affichage du message envoyé
+    
+    function load(id){
+        var imageCacheId = document.getElementById(id).id;
+        var message = document.getElementById(imageCacheId+"_hidden").value;
+        document.getElementById(imageCacheId+"_div").innerHTML= message;
+    }
+    
+
+    </script>
 
     <!--API mise en forme du texte-->
+    <script src="vendor/tinymce/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       tinymce.init({
         selector: '#comment',
@@ -27,9 +61,12 @@
             tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | a11ycheck code wordcount' },
         },     
         menubar: 'edit format',
-        plugins: 'emoticons lists advlist visualchars',
-        toolbar: 'bold italic underline | bullist numlist | alignleft aligncenter alignright alignjustify | outdent indent | visualchars |' + 'image | emoticons',
-        toolbar_mode: 'floating'
+        plugins: 'lists advlist visualchars',
+        toolbar: 'bold italic underline | bullist numlist | alignleft aligncenter alignright alignjustify | outdent indent | visualchars |' ,
+        toolbar_mode: 'floating', 
+        entity_encoding: "raw",
+        encoding : 'xml',
+        
       });
     </script>   
 </head>
@@ -58,5 +95,4 @@
             <a class="connection_button" href="https://app.fizzup.com/login?lc=fr">Connexion</a>
         </div>
     </header>
-    <main>
  

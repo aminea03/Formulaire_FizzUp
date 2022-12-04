@@ -97,17 +97,27 @@
 
 
 
+    /*  PAGE LAISSER UN AVIS */
 
-    /*  MAIN  */
+    h1 {
+        padding-bottom: 25px;
+    }
+    h1,
+    h2 {
+        font-size: 1.5rem;
+        color: #000;
+        font-weight: 400;
+        text-align: center;
+    } 
 
-    main {
+    .indexMain {
         padding: 30px 0;
         width: 90%;
         margin: 0 auto;
         display: grid;
         grid-template-columns: 66% 32%;
         column-gap: 2%;
-    }
+    } 
 
     .form-section {
         padding: 20px;
@@ -115,16 +125,10 @@
         border: 1px solid #d3d3d3;
         border-radius: 6px;
         background: #fff;
+        height: fit-content;
     }
-
-    h1,
-    h2 {
-        font-size: 1.5rem;
-        color: #000;
-        font-weight: 400;
-        text-align: center;
-    }
-
+    
+    
     .opinion-section {
         padding: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,.1);
@@ -137,6 +141,61 @@
         align-items: center;     
     }
 
+
+
+    .rateStar {
+        height: 26px ;
+    }
+
+    .rateStarSmall {
+        height: 18px ;
+    }
+
+    .rateStarVerySmall {
+        height: 10px ;
+    }
+
+    .form-button{
+        text-align: center;
+        color: #fff;
+        background: #0957ff;
+        font-size: 1rem;
+        line-height: 1;
+        padding: 1rem 1.5rem;
+        border: 0;
+        border-radius: 5px;
+
+    }
+    
+    .opinion-container{
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .starsContainer,
+    .userComment, 
+    .imageAvis,
+    .createdAt {
+        padding: 7.5px 0;
+    }
+
+    .userComment {
+        font-size: 1rem;
+        line-height: 1.2;
+        height: 200px;
+        overflow-y: scroll;
+    }
+
+    .imageAvis{
+        text-align: center;
+        align-self: center;
+    }
+    .createdAt {
+        font-size: 0.75rem;
+    }
     .opinion-button {
         text-align: center;
         color: #fff;
@@ -151,6 +210,54 @@
     }
 
 
+    /*  PAGE OPINION */
+
+    .opinionMain {
+        padding: 30px 0;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    } 
+
+    .sortingStarsContainer {
+        padding: 0;
+        height : fit-content;
+        width: fit-content;
+    }
+
+    .opinion-page{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 10px;
+    }
+
+    .opinion-container-avis{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.1);
+        border: 1px solid #d3d3d3;
+        border-radius: 6px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .displayNone{
+        display: none;
+    }
+
+    .imageAvis {
+        max-height: 100px;
+        max-width: 200px;
+    }
+
+    .opinion-user {
+        font-size: 1.2rem;
+        text-align: left;
+    }
     /*  FOOTER */
 
     footer {
