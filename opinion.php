@@ -30,57 +30,55 @@ if (isset($_GET['sortingRate5']) ||
         while($result=mysqli_fetch_assoc($resultComment)){
             array_push($results, $result);
         }
+        $lengthResults=count($results);
 
         $filteredComment = [];
         // Insertion des résultats en fonction du filtre note choisi
 
         if(isset($_GET['sortingRate5'])) {
-            foreach ($results as $comment){
-                if ($comment['rate']==5) {
-                    array_push($filteredComment, $comment);
+            for($i=($lengthResults-1); $i>=0; $i--){
+                if ($results[$i]['rate']==5){
+                    array_push($filteredComment, $results[$i]);
                 }
             }
         }
         
         if(isset($_GET['sortingRate4'])) {
-            foreach ($results as $comment){
-                if ($comment['rate']==4) {
-                    array_push($filteredComment, $comment);
+            for($i=($lengthResults-1); $i>=0; $i--){
+                if ($results[$i]['rate']==4){
+                    array_push($filteredComment, $results[$i]);
                 }
             }
         }
         if(isset($_GET['sortingRate3'])) {
-            foreach ($results as $comment){
-                if ($comment['rate']==3) {
-                    array_push($filteredComment, $comment);
+            for($i=($lengthResults-1); $i>=0; $i--){
+                if ($results[$i]['rate']==3){
+                    array_push($filteredComment, $results[$i]);
                 }
             }
         }
         if(isset($_GET['sortingRate2'])) {
-            foreach ($results as $comment){
-                if ($comment['rate']==2) {
-                    array_push($filteredComment, $comment);
+            for($i=($lengthResults-1); $i>=0; $i--){
+                if ($results[$i]['rate']==2){
+                    array_push($filteredComment, $results[$i]);
                 }
             }
         }
         if(isset($_GET['sortingRate1'])) {
-            foreach ($results as $comment){
-                if ($comment['rate']==1) {
-                    array_push($filteredComment, $comment);
+            for($i=($lengthResults-1); $i>=0; $i--){
+                if ($results[$i]['rate']==1){
+                    array_push($filteredComment, $results[$i]);
                 }
             }
         }
         if(isset($_GET['sortingRate0'])) {
-            foreach ($results as $comment){
-                if ($comment['rate']==0) {
-                    array_push($filteredComment, $comment);
+            for($i=($lengthResults-1); $i>=0; $i--){
+                if ($results[$i]['rate']==0){
+                    array_push($filteredComment, $results[$i]);
                 }
             }
         }
-        //var_dump($filteredComment);
 
-
-        // changer le nom du tableau "results"
         $length=count($filteredComment);
 
         if(isset($_GET['commentSorting'])){
@@ -138,6 +136,7 @@ if (isset($_GET['sortingRate5']) ||
         </div>
         <div class="filtre">
             <label for="commentSorting">Filtrer les résultats par notes : </label>
+            <div class="filtreContainer">
                 <div class="sortingStarsContainer">
                         <input type="checkbox" name="sortingRate5" id="sortingRate5" value="5">
                         <img src="img/yellowStar.png" class="rateStarVerySmall">
@@ -186,9 +185,8 @@ if (isset($_GET['sortingRate5']) ||
                         <img src="img/greyStar.png" class="rateStarVerySmall">
                         <img src="img/greyStar.png" class="rateStarVerySmall">
                 </div>
-            </label>
-        </div>
-
+            </div>
+        </div>        
         <div class="divForm">
             <button class="button" type="submit" value="valider">Valider</button>
         </div>
@@ -197,29 +195,61 @@ if (isset($_GET['sortingRate5']) ||
     <section class="opinion-page">
 
         <!--Affichage dynamique des derniers avis-->
-        <?php for($i=($length-1); $i>=0; $i--): ?>
-            <div class="opinion-container-avis">
-                <h2 class="opinion-user"><?=$results[$i]['username']?></h2>
-                <!--Affichage de la notation-->
-                <div class="starsContainer">
-                    <?php for($j=$results[$i]['rate']; $j>=1; $j--): ?>
-                        <img src="img/yellowStar.png" class="rateStarSmall">
-                    <?php endfor ?>
-                    <?php for($k=($results[$i]['rate']+1); $k<=5; $k++): ?>
-                        <img src="img/greyStar.png" class="rateStarSmall">
-                    <?php endfor ?>
+
+        <?php if (isset($_GET['sortingRate5']) ||
+                isset($_GET['sortingRate4']) ||
+                isset($_GET['sortingRate3']) ||
+                isset($_GET['sortingRate2']) ||
+                isset($_GET['sortingRate1']) ||
+                isset($_GET['sortingRate0']) ): ?>
+            <?php for($i=($length-1); $i>=0; $i--): ?>
+                <div class="opinion-container-avis">
+                    <h2 class="opinion-user"><?=$filteredComment[$i]['username']?></h2>
+                    <!--Affichage de la notation-->
+                    <div class="starsContainer">
+                        <?php for($j=$filteredComment[$i]['rate']; $j>=1; $j--): ?>
+                            <img src="img/yellowStar.png" class="rateStarSmall">
+                        <?php endfor ?>
+                        <?php for($k=($filteredComment[$i]['rate']+1); $k<=5; $k++): ?>
+                            <img src="img/greyStar.png" class="rateStarSmall">
+                        <?php endfor ?>
+                    </div>
+                    <div class="userComment">
+                        <iframe id="imageCache_<?=$filteredComment[$i]['idComment']?>" src="img/logoFizzup.png" alt="logo fizzup" onload="load(this.id)" width="0" height="0" class="displayNone"></iframe>
+                        <input type="hidden" id="imageCache_<?=$filteredComment[$i]['idComment']?>_hidden" value="<?=html_entity_decode($filteredComment[$i]['comment']);?>" >
+                        <div id="imageCache_<?=$filteredComment[$i]['idComment']?>_div"></div>
+                    </div>
+                    <div class="imageAvis">
+                        <img class="imageAvis" src="imgUpload/<?=$filteredComment[$i]['filename']?>" alt="">
+                    </div>
+                    <p class="createdAt">Avis publié le : <?=date('d F Y', strtotime($filteredComment[$i]['createdAt']))?></p>
                 </div>
-                <div class="userComment">
-                    <iframe id="imageCache_<?=$results[$i]['idComment']?>" src="img/logoFizzup.png" alt="logo fizzup" onload="load(this.id)" width="0" height="0" class="displayNone"></iframe>
-                    <input type="hidden" id="imageCache_<?=$results[$i]['idComment']?>_hidden" value="<?=html_entity_decode($results[$i]['comment']);?>" >
-                    <div id="imageCache_<?=$results[$i]['idComment']?>_div"></div>
+            <?php endfor ?>
+        <?php else : ?>
+            <?php for($i=($length-1); $i>=0; $i--): ?>
+                <div class="opinion-container-avis">
+                    <h2 class="opinion-user"><?=$results[$i]['username']?></h2>
+                    <!--Affichage de la notation-->
+                    <div class="starsContainer">
+                        <?php for($j=$results[$i]['rate']; $j>=1; $j--): ?>
+                            <img src="img/yellowStar.png" class="rateStarSmall">
+                        <?php endfor ?>
+                        <?php for($k=($results[$i]['rate']+1); $k<=5; $k++): ?>
+                            <img src="img/greyStar.png" class="rateStarSmall">
+                        <?php endfor ?>
+                    </div>
+                    <div class="userComment">
+                        <iframe id="imageCache_<?=$results[$i]['idComment']?>" src="img/logoFizzup.png" alt="logo fizzup" onload="load(this.id)" width="0" height="0" class="displayNone"></iframe>
+                        <input type="hidden" id="imageCache_<?=$results[$i]['idComment']?>_hidden" value="<?=html_entity_decode($results[$i]['comment']);?>" >
+                        <div id="imageCache_<?=$results[$i]['idComment']?>_div"></div>
+                    </div>
+                    <div class="imageAvis">
+                        <img class="imageAvis" src="imgUpload/<?=$results[$i]['filename']?>" alt="">
+                    </div>
+                    <p class="createdAt">Avis publié le : <?=date('d F Y', strtotime($results[$i]['createdAt']))?></p>
                 </div>
-                <div class="imageAvis">
-                    <img class="imageAvis" src="imgUpload/<?=$results[$i]['filename']?>" alt="">
-                </div>
-                <p class="createdAt">Avis publié le : <?=date('d F Y', strtotime($results[$i]['createdAt']))?></p>
-            </div>
-        <?php endfor ?>
+            <?php endfor ?>
+        <?php endif ?>
     </section>
 </main>
 

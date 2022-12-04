@@ -124,7 +124,7 @@ $length=count($results);
     </section>
 
     <section class="opinion-section">
-        <h1>Les avis des internautes</h1>
+        <h1>Les derniers avis</h1>
         <div class="opinion-grid">
             <!--affichage dynamique des 3 derniers avis-->
             <?php for($i=($length-1); $i>($length-4); $i--):?>
@@ -139,7 +139,7 @@ $length=count($results);
                         <img src="img/greyStar.png" class="rateStarSmall">
                     <?php endfor ?>
                 </div>
-                <div class="userComment">
+                <div class="userCommentForm">
                     <iframe id="imageCache_<?=$results[$i]['idComment']?>" src="img/logoFizzup.png" alt="logo fizzup" onload="load(this.id)" width="0" height="0" class="displayNone"></iframe>
                     <input type="hidden" id="imageCache_<?=$results[$i]['idComment']?>_hidden" value="<?=html_entity_decode($results[$i]['comment']);?>" >
                     <div id="imageCache_<?=$results[$i]['idComment']?>_div"></div>
