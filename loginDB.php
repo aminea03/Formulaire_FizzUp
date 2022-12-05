@@ -1,5 +1,6 @@
 <?php
-$hn = 'localhost';
-$db = 'AvisFizzup';
-$un = 'root';
-$pw = 'root';
+$hn = 'mysql-jobfinding.alwaysdata.net';
+$db = 'jobfinding_avisfizzup';
+$un = '291801';
+$pw = '22_essaPeDtoM';
+

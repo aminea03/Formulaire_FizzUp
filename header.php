@@ -76,7 +76,11 @@
             <a href="https://app.fizzup.com/start">
                 <img class="logo-Fizzup" src="img/logoFizzup.png" alt="FIZZUP Logo">
             </a>
-            <ul class="nav-list">
+            <!--Pour affichage du menu burger sur mobile-->
+            <label for="toggle" id="burger">☰</label>
+            <input type="checkbox" id="toggle">
+            <!--Affichage des liens de navigation-->
+            <ul class="nav-list" >
                 <li class="nav-workout">
                     <a class="nav-link" href="https://app.fizzup.com/dashboard">Entrainements</a>
                 </li>

@@ -125,7 +125,7 @@ if (isset($_GET['sortingRate5']) ||
     <h1 class="opinion-title">Les avis des internautes</h1>
     <!--Formulaire de tri des résultats-->
     <form action="" method="get" class="opinionForm">
-        <div class="chartForm">
+        <div class="opinion-divForm">
             <label for="commentSorting">Trier les résultats par :  </label>
             <select id="commentSorting" name="commentSorting" class="opinionForm-option">
                 <option value="decreasingDate" selected >Les derniers résultats</option>
@@ -134,7 +134,7 @@ if (isset($_GET['sortingRate5']) ||
                 <option value="increasingRate">Notes croissante</option>
             </select>
         </div>
-        <div class="filtre">
+        <div class="opinion-divForm">
             <label for="commentSorting">Filtrer les résultats par notes : </label>
             <div class="filtreContainer">
                 <div class="sortingStarsContainer">
@@ -187,8 +187,8 @@ if (isset($_GET['sortingRate5']) ||
                 </div>
             </div>
         </div>        
-        <div class="divForm">
-            <button class="button" type="submit" value="valider">Valider</button>
+        <div class="opinion-divForm">
+            <button class="form-button" type="submit" value="valider">Valider</button>
         </div>
     </form>
 
